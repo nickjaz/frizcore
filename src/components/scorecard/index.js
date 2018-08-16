@@ -29,8 +29,8 @@ export default class ScoreCard extends Component {
         let parFilters = [];
 
         parFilters.push(
-            <option value={4 * num}>Beginner: {4 * num}</option>,
-            <option value={3 * num}>Advanced: {3 * num}</option>,
+            <option value={4}>Beginner: {4 * num} (4 par per hole)</option>,
+            <option value={3}>Advanced: {3 * num} (3 par per hole)</option>,
         );
 
         return parFilters;
@@ -57,9 +57,9 @@ export default class ScoreCard extends Component {
         let state = this.state;
 
         return (
-            <div className='container'>
-                <h3>Score Card</h3>
-                <div className='top-bar'>
+            <div className='container panel'>
+                <div className='panel-header top-bar'>
+                    <h2>Frizcore Card</h2>
                     <form className='form' onSubmit={this.handleSubmit}>
                         <div className='row'>
                             <div className='form-group col'>

@@ -33,6 +33,7 @@ export default class ScoreTable extends Component {
             let newPlayer = {
                 name: 'Player ' + (n + 1),
                 score: scoreClone,
+                over_par: 0,
                 total_score: 0,
             }
 
@@ -49,7 +50,7 @@ export default class ScoreTable extends Component {
 
         times(number_of_holes, (n) => {
             holeHeaders.push(
-                <th className='text-center'>{n + 1}</th>
+                <th>{n + 1}</th>
             );
         });
 
@@ -61,13 +62,14 @@ export default class ScoreTable extends Component {
 
         times(number_of_players, (n) => {
             let num = (n + 1);
-            let player = !isEmpty(this.state.players) ? this.state.players[num] : {total_score: 0}
+            let player = !isEmpty(this.state.players) ? this.state.players[num] : {total_score: 0, over_par: 0}
 
             playerRows.push(
                 <PlayerRow  player_num={num}
                             number_of_holes={this.props.number_of_holes}
                             updateScore={this.updateScore}
                             totalScore={player.total_score}
+                            overPar={player.over_par}
                     />
             );
         });
@@ -90,15 +92,14 @@ export default class ScoreTable extends Component {
 
         players[playerNum].score[holeNum] = newScore;
 
-        this.setState({
-            players,
-        });
+        this.setState({players});
 
         this.getTotal(playerNum);
+        this.getOverPar(playerNum);
     };
 
     getTotal = (p) => {
-        let {players} = this.state
+        let {players} = this.state;
 
         let total = 0;
 
@@ -108,23 +109,39 @@ export default class ScoreTable extends Component {
 
         players[p].total_score = total;
 
-        this.setState({
-            players,
+        this.setState({players});
+    };
+
+    getOverPar = (p) => {
+        let {players} = this.state;
+        let {par} = this.props
+        let playerScore = players[p].score;
+
+        let overPar = 0;
+
+        Object.keys(playerScore).map(key => {
+            if (playerScore[key] !== 0) {
+                return overPar += (playerScore[key] - par);
+            };
         });
+
+        players[p].over_par = overPar;
+
+        this.setState({players});
     };
 
     render() {
-        let { number_of_holes, number_of_players } = this.props;
+        let { number_of_holes, number_of_players, par } = this.props;
 
         return (
             <div className='table-responsive'>
-                <table className='table-bordered table-striped'>
+                <table className='table-striped table-bordered'>
                     <thead>
                         <tr>
                             <th></th>
                             {this.getTotalHoles(number_of_holes)}
-                            <th>Par</th>
-                            <th>Total</th>
+                            <th>Par {par * number_of_holes}</th>
+                        <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
