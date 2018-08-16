@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { times } from 'lodash';
+import { times, cloneDeep, isEmpty } from 'lodash';
 import PlayerRow from './player-row'
 
 export default class ScoreTable extends Component {
@@ -21,19 +21,18 @@ export default class ScoreTable extends Component {
 
         times(this.props.number_of_holes, (n) => {
             let holeNum = `${n+1}`;
-            let newHole = {
-                value: 0,
-                above_par: 0,
-            }
+            let newHole = 0
+
 
             scoreCard[holeNum] = newHole
         });
 
         times(this.props.number_of_players, (n) => {
+            let scoreClone = cloneDeep(scoreCard);
             let playerNum = `${n+1}`;
             let newPlayer = {
                 name: 'Player ' + (n + 1),
-                score: scoreCard,
+                score: scoreClone,
                 total_score: 0,
             }
 
@@ -61,11 +60,14 @@ export default class ScoreTable extends Component {
         let playerRows = [];
 
         times(number_of_players, (n) => {
+            let num = (n + 1);
+            let player = !isEmpty(this.state.players) ? this.state.players[num] : {total_score: 0}
+
             playerRows.push(
-                <PlayerRow  player_num={n}
+                <PlayerRow  player_num={num}
                             number_of_holes={this.props.number_of_holes}
                             updateScore={this.updateScore}
-                            scoreTable={this.state.players}
+                            totalScore={player.total_score}
                     />
             );
         });
@@ -73,11 +75,11 @@ export default class ScoreTable extends Component {
         return playerRows;
     };
 
-    updateScore(e) {
-        let {players} = this.state;
+    updateScore(e, h, p) {
+        let { players } = this.state;
         let val = parseInt(e.target.value, 10);
-        let playerNum = parseInt(e.target.name.split(': ')[3], 10) + 1;
-        let holeNum = parseInt(e.target.name.split(': ')[1], 10) + 1;
+        let playerNum = p;
+        let holeNum = h + 1;
         let newScore = 0;
 
         if (Number.isNaN(val)) {
@@ -86,22 +88,33 @@ export default class ScoreTable extends Component {
             newScore = val;
         }
 
-        console.log('player from array:', players[playerNum]);
-
-        players[playerNum].score[holeNum].value = newScore;
-
-
-        console.log('players:', players);
+        players[playerNum].score[holeNum] = newScore;
 
         this.setState({
             players,
         });
 
-        // console.log('state:', this.state);
+        this.getTotal(playerNum);
+    };
+
+    getTotal = (p) => {
+        let {players} = this.state
+
+        let total = 0;
+
+        Object.keys(players[p].score).map(key => {
+            return total += players[p].score[key];
+        });
+
+        players[p].total_score = total;
+
+        this.setState({
+            players,
+        });
     };
 
     render() {
-        let props = this.props;
+        let { number_of_holes, number_of_players } = this.props;
 
         return (
             <div className='table-responsive'>
@@ -109,13 +122,13 @@ export default class ScoreTable extends Component {
                     <thead>
                         <tr>
                             <th></th>
-                            {this.getTotalHoles(props.number_of_holes)}
+                            {this.getTotalHoles(number_of_holes)}
                             <th>Par</th>
                             <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.getPlayerRows(props.number_of_players)}
+                        {this.getPlayerRows(number_of_players)}
                     </tbody>
                 </table>
             </div>

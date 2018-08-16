@@ -78,13 +78,11 @@ export default class ScoreCard extends Component {
                             </div>
                             <div className='form-group col'>
                                 <label>{'Number of holes'}</label>
-                                <select name='number_of_holes'
+                                <input name='number_of_holes'
+                                        type='number'
                                         className='form-control'
                                         onChange={this.handleChange}
-                                        value={state.number_of_holes} disabled={state.start_game}>
-                                    <option value={9}>9</option>
-                                    <option value={18}>18</option>
-                                </select>
+                                        value={state.number_of_holes} disabled={state.start_game}/>
                             </div>
                             <div className='form-group col'>
                                 <label>{'Par'}</label>
