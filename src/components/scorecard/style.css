@@ -1,5 +1,6 @@
 * {
     font-size: 3vw;
+    font-family: 'helvetica' sans-serif;
 }
 
 .hole {
@@ -55,5 +56,41 @@ input {
 
 .form-control {
     text-align: center;
+    height: 4vw;
+}
+
+.spacer-container {
+    position: relative;
+    height: 10vh;
+}
+
+.score-head {
+    background: url(../../images/frizcourse.jpg) #666 no-repeat;
+    background-position-y: 0%;
+    background-position-x: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 6vw;
+    width: 100%;
+    position: relative;
+}
+
+.spacer {
+    background: url(../../images/frizcourse.jpg) #666 no-repeat;
+    background-position-y: 35%;
+    background-position-x: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 4vw;
+    width: 100%;
+    position: relative;
+}
+
+.icon {
+    margin-left: 1vw;
     height: 4vw;
 }
