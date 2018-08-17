@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ScoreTable from './score-table';
-import './style.css'
+import './style.css';
+import logo from '../../images/frizicon.png';
 
 export default class ScoreCard extends Component {
     constructor(props) {
@@ -57,9 +58,9 @@ export default class ScoreCard extends Component {
         let state = this.state;
 
         return (
-            <div className='container panel'>
-                <div className='panel-header top-bar'>
-                    <h2>Frizcore Card</h2>
+            <div className='container'>
+                <div className='top-bar'>
+                    <h2>Frizcore Card<img className='icon' src={logo} alt=''/></h2>
                     <form className='form' onSubmit={this.handleSubmit}>
                         <div className='row'>
                             <div className='form-group col'>
@@ -103,6 +104,8 @@ export default class ScoreCard extends Component {
                             </div>
                         </div>
                     </form>
+                </div>
+                <div className='spacer'>
                 </div>
                 <div>
                     {state.start_game &&
