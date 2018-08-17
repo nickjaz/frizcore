@@ -16,13 +16,13 @@ export default class PlayerRow extends Component {
         times(number_of_holes, (n) => {
             holes.push(
                 <td>
-                    <input  name={`hole: ${n}: player: ${player_num}`}
+                    <input  name={`hole: ${n + 1}: player: ${player_num}`}
                             type='number'
                             min='1'
                             placeholder='-'
                             className='text-center hole'
-                            onChange={(e) => updateScore(e)}
-                    />
+                            onChange={(e) => updateScore(e, n, player_num)}
+                        />
                 </td>
             );
         });
@@ -31,20 +31,20 @@ export default class PlayerRow extends Component {
     };
 
     render() {
-        let {player_num, number_of_holes} = this.props;
+        let {player_num, number_of_holes, totalScore} = this.props;
 
         return (
             <tr>
                 <td className='player'>
                     <input  type='text'
-                            placeholder={'Player ' + (player_num + 1)}
+                            placeholder={'Player ' + player_num}
                             name='name'
                             className='text-center'
                         />
                 </td>
                 {this.getHoles(number_of_holes)}
                 <td></td>
-                <td></td>
+                <td>{totalScore}</td>
             </tr>
         );
     };
