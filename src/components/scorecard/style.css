@@ -1,3 +1,7 @@
+* {
+    font-size: 3vw;
+}
+
 .hole {
     width: 4vw;
 }
@@ -20,4 +24,36 @@ input[type=number]::-webkit-outer-spin-button {
 
 .center {
     margin: 0 auto;
+}
+
+h2 {
+    font-size: 5vw;
+    text-align: center;
+}
+
+th {
+    padding: 1vw;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    width: 6vw;
+}
+
+.player-input {
+    width: 12vw;
+}
+
+.form-group {
+    text-align: center;
+}
+
+.form-control {
+    text-align: center;
+    height: 4vw;
 }
