@@ -3,51 +3,6 @@
     font-family: 'helvetica' sans-serif;
 }
 
-.hole {
-    width: 4vw;
-}
-
-/* For Firefox */
-input[type='number'] {
-    -moz-appearance:textfield;
-}
-/* Webkit browsers like Safari and Chrome */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.top-bar {
-    position: absolute;
-    background-color: #e9ecef;
-    padding: 2vw;
-    top: 10vw;
-    margin: 0 2vw;
-    border-radius: 3px;
-    border: 5px solid #ccc;
-}
-
-.score-card {
-    padding: 1vw;
-    width: 96vw;
-    overflow: auto;
-    margin: 0 2vw;
-    position: absolute;
-    top: 48vw;
-    background-color: #fff;
-    border-radius: 4px;
-    border: 5px solid #ccc;
-}
-
-.btn-start {
-    opacity: 1 !important;
-}
-
-.center {
-    margin: 0 auto;
-}
-
 h2 {
     font-size: 5vw;
     text-align: center;
@@ -74,35 +29,63 @@ input {
     width: 6vw;
 }
 
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* unique classes */
+
+.top-bar {
+    position: absolute;
+    background-color: #e9ecef;
+    padding: 2vw;
+    top: 10vw;
+    margin: 0 2vw;
+    border-radius: 4px;
+    border: 3px solid #ccc;
+}
+
+.score-card {
+    padding: 1vw;
+    width: 96vw;
+    overflow: auto;
+    margin: 0 2vw;
+    position: absolute;
+    top: 48vw;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 3px solid #ccc;
+}
+
+.btn-start {
+    border: 1px solid #ccc;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.hole {
+    width: 4vw;
+}
+
 .player-input {
     width: 14vw;
-}
-
-.form-group {
-    text-align: center;
-}
-
-.form-control {
-    text-align: center;
-    height: 6.5vw;
 }
 
 .start {
     opacity: .9;
 }
 
-/* .top-spacer {
-    background: url(../../images/frizcourse.jpg) #666 no-repeat;
-    background-position-y: 0%;
-    background-position-x: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 2vw;
-    width: 100%;
-    position: relative;
-} */
+/* image styling */
 
 .hero {
     background: url(../../images/frizcourse.jpg) #666 no-repeat;
@@ -120,4 +103,15 @@ input {
 .icon {
     margin-left: 1vw;
     height: 4vw;
+}
+
+/* boostrap classes */
+
+.form-group {
+    text-align: center;
+}
+
+.form-control {
+    text-align: center;
+    height: 6.5vw;
 }

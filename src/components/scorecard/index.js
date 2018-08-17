@@ -82,6 +82,8 @@ export default class ScoreCard extends Component {
                                     <label>{'Number of holes'}</label>
                                     <input name='number_of_holes'
                                             type='number'
+                                            min='1'
+                                            max='18'
                                             className='form-control'
                                             onChange={this.handleChange}
                                             value={state.number_of_holes} disabled={state.start_game}/>
