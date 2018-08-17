@@ -19,6 +19,7 @@ export default class PlayerRow extends Component {
                     <input  name={`hole: ${n + 1}: player: ${player_num}`}
                             type='number'
                             min='1'
+                            max='9'
                             placeholder='-'
                             className='score-input'
                             onChange={(e) => updateScore(e, n, player_num)}
