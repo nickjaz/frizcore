@@ -1,5 +1,8 @@
 * {
     font-size: 3vw;
+}
+
+body {
     font-family: 'helvetica' sans-serif;
 }
 
@@ -39,6 +42,17 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+/* boostrap classes */
+
+.form-group {
+    text-align: center;
+}
+
+.form-control {
+    text-align: center;
+    height: 6.5vw;
 }
 
 /* unique classes */
@@ -103,15 +117,4 @@ input[type=number]::-webkit-outer-spin-button {
 .icon {
     margin-left: 1vw;
     height: 4vw;
-}
-
-/* boostrap classes */
-
-.form-group {
-    text-align: center;
-}
-
-.form-control {
-    text-align: center;
-    height: 6.5vw;
 }
