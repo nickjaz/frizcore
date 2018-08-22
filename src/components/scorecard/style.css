@@ -1,19 +1,17 @@
-* {
-    font-size: 3vw;
-}
 
 body {
     font-family: 'Roboto' sans-serif;
+    font-size: 3vw;
 }
 
 h2 {
-    font-size: 8vw;
+    font-size: 6vw;
     text-align: center;
     padding: 2vw;
     color: #111;
     text-shadow: .5px .5px #888;
     margin-bottom: 0 !important;
-    font-family: 'Days One', sans-serif;
+    font-family: 'Slabo 13px', sans-serif;
 }
 
 th {
@@ -34,6 +32,11 @@ label {
 input {
     text-align: center;
     width: 6vw;
+    font-size: 2.5vw !important;
+}
+
+select {
+    font-size: 2.5vw !important;
 }
 
 /* For Firefox */
@@ -91,10 +94,12 @@ input[type=number]::-webkit-outer-spin-button {
     width: 14vw;
 }
 
-.helper {
-    padding: 2vw;
-    color: #ccc;
+.helper-row {
     text-align: center;
+    color: #888;
+    font-size: 1.5vw;
+    padding-top: 2vw;
+    padding-bottom: -1vw;
 }
 
 /* image styling */

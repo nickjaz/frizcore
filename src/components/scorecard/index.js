@@ -59,10 +59,8 @@ export default class ScoreCard extends Component {
 
         return (
             <div>
-                <div className='top-image'>
-                    <h2>Frizcore Card<img className='icon' src={logo} alt=''/></h2>
-                </div>
                 <div className='filler'>
+                    <h2>Frizcore Card<img className='icon' src={logo} alt=''/></h2>
                     <div className={'top-bar ' + (state.start_game ? 'start' : undefined)}>
                         <form className='form' onSubmit={this.handleSubmit}>
                             <div className='row'>
@@ -107,6 +105,9 @@ export default class ScoreCard extends Component {
                                 <div className='col'>
                                     <button className={'btn btn-block btn-start ' + (state.start_game ? 'btn-default' : 'btn-primary')} type='submit'>{ state.start_game ? 'Reset' : 'Start Game' }</button>
                                 </div>
+                            </div>
+                            <div className='helper-row'>
+                                <span className='helper'>turn phone on side for better view</span>
                             </div>
                         </form>
                     </div>
