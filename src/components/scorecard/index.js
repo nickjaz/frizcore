@@ -105,7 +105,7 @@ export default class ScoreCard extends Component {
                             </div>
                             <div className='row'>
                                 <div className='col'>
-                                    <button className='btn btn-block mb-2 btn-start' type='submit'>{ state.start_game ? 'Reset' : 'Start Game' }</button>
+                                    <button className={'btn btn-block btn-start ' + (state.start_game ? 'btn-default' : 'btn-primary')} type='submit'>{ state.start_game ? 'Reset' : 'Start Game' }</button>
                                 </div>
                             </div>
                         </form>
