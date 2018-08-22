@@ -148,9 +148,6 @@ export default class ScoreTable extends Component {
                         {this.getPlayerRows(number_of_players)}
                     </tbody>
                 </table>
-                <div className='helper'>
-                    <span>turn phone on side for better view</span>
-                </div>
             </div>
         );
     };
